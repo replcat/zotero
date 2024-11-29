@@ -60,6 +60,7 @@ Zotero_Preferences.General = {
 		this._updateFileHandlerUI();
 		this._initEbookFontFamilyMenu();
 		this._initAutoDisableToolCheckbox();
+		this._initShowSelectionPopupCheckbox();
 	},
 
 	_getAutomaticLocaleMenuLabel: function () {
@@ -576,5 +577,16 @@ Zotero_Preferences.General = {
 			// XUL checkbox doesn't support 'indeterminate' property, therefore making it grayish instead
 			checkbox.querySelector('.checkbox-check').style.opacity = '0.5';
 		}
+	},
+
+	_initShowSelectionPopupCheckbox() {
+		let checkbox = document.getElementById('show-selection-popup');
+		checkbox.addEventListener('command', () => {
+			let value = checkbox.checked;
+			Zotero.Prefs.set('reader.showSelectionPopup', value);
+			checkbox.querySelector('.checkbox-check').style.opacity = 'unset';
+		});
+
+		checkbox.checked = Zotero.Prefs.get('reader.showSelectionPopup');
 	}
 }

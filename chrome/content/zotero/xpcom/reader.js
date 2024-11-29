@@ -213,6 +213,7 @@ class ReaderInstance {
 			autoDisableNoteTool: Zotero.Prefs.get('reader.autoDisableTool.note'),
 			autoDisableTextTool: Zotero.Prefs.get('reader.autoDisableTool.text'),
 			autoDisableImageTool: Zotero.Prefs.get('reader.autoDisableTool.image'),
+			showSelectionPopup: Zotero.Prefs.get('reader.showSelectionPopup'),
 			onOpenContextMenu: () => {
 				// Functions can only be passed over wrappedJSObject (we call back onClick for context menu items)
 				this._openContextMenu(this._iframeWindow.wrappedJSObject.contextMenuParams);
